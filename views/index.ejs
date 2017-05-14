@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/head %>
+</head>
+<body class="container">
+<header>
+    <% include partials/header %>
+</header>
+<main>
+    <div class="row">
+        <a class="btn btn-success" href="<%=contextPath%>/users/add" >
+            <span class="glyphicon glyphicon-plus-sign"></span> Add User
+        </a>
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <% data.forEach(function(item){%>
+                <tr>
+                    <td><%=item.id%></td>
+                    <td><%=item.name%></td>
+                    <td><%=item.email%></td>
+                    <td><%=item.created_at%></td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-info" href="<%=contextPath%>/update/<%=item.id%>" >
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a class="btn btn-danger" href="<%=contextPath%>/delete/<%=item.id%>" >
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </div>
+
+                    </td>
+                </tr>
+                <%});%>
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer>
+    <% include partials/footer %>
+</footer>
+</body>
+</html>
